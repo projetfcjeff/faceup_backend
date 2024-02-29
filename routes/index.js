@@ -13,9 +13,9 @@ router.post("/upload", async (req, res) => {
     const resultCloudinary = await cloudinary.uploader.upload(photoPath);
     console.log(resultCloudinary);
     fs.unlinkSync(photoPath);
-    return res.json({ result: true, url: resultCloudinary.secure_url });
+    res.json({ result: true, url: resultCloudinary.secure_url });
   } else {
-    return res.json({ result: false, error: resultCopy });
+    res.json({ result: false, error: resultCopy });
   }
 });
 
